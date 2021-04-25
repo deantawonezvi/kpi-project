@@ -124,7 +124,7 @@
         #sidebar ul li.active > a,
         a[aria-expanded="true"] {
             color: #fff;
-            background: #181c32;
+            background: black;
         }
 
         a[data-toggle="collapse"] {
@@ -136,7 +136,7 @@
         ul ul a {
             font-size: 0.9em !important;
             padding-left: 30px !important;
-            background: #181c32;
+            background: black;
         }
 
         ul.CTAs {
@@ -158,7 +158,7 @@
 
         a.article,
         a.article:hover {
-            background: #181c32 !important;
+            background: black !important;
             color: #fff !important;
         }
 
