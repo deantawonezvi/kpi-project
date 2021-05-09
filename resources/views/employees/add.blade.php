@@ -56,7 +56,7 @@
                             @endif
                         </div>
                         <div class="col-lg-6">
-                            <label>Employee User Name:</label>
+                            <label>Employee Department:</label>
                             <input type="text" class="form-control" name="user_name"
                                    placeholder="Enter employee username" required/>
                             @if ($errors->has('user_name'))
@@ -90,6 +90,19 @@
                                         <strong>{{ $errors->first('role') }}</strong>
                                     </span>
                             @endif
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <div class="col">
+                            <label>Department</label>
+
+                            <select class="form-control" name="department" id="department" >
+                                <option value="option_select" disabled selected>Select Department</option>
+                                @foreach($departments as $department)
+                                    <option name="category" value="{{$department->name}}">{{$department->name}}</option>
+                                @endforeach
+                            </select>
                         </div>
                     </div>
 
