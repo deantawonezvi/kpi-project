@@ -26,7 +26,7 @@ use Carbon\Carbon;
                 </svg>
                 <!--end::Svg Icon-->
             </span>
-            {{$employee->name}} - {{ucfirst($employee->role)}}
+            {{$employee->name}} - {{ucfirst($employee->type)}}
             <span>
                  @if($employee->status == 1)
 

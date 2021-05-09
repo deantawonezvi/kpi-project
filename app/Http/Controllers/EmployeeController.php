@@ -40,7 +40,6 @@ class EmployeeController extends Controller
         $temp_password = rand(1000, 9999);
 
         $employee->password = bcrypt($temp_password);
-        $employee->temporary_password = true;
         $employee->save();
         return redirect()->back()->with(['message' => 'Employee password reset with temporary password: ' . $temp_password]);
     }
