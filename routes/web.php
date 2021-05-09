@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\EmployeeController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,11 +15,23 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
-});
+    return view('dashboard');
+})->middleware(['auth'])->name('dashboard');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
+
+/*Employees Routes*/
+Route::get('/employees',[EmployeeController::class,'index'])->middleware(['auth']);
+Route::get('/employee/{id}',[EmployeeController::class,'employeeIndex'])->middleware(['auth']);
+Route::get('/employees/add',[EmployeeController::class,'addIndex'])->middleware(['auth']);
+Route::post('/employees/add',[EmployeeController::class,'addEmployee'])->middleware(['auth']);
+Route::post('/employees/update-pin',[EmployeeController::class,'updatePin'])->middleware(['auth']);
+Route::post('/employees/delete',[EmployeeController::class,'deleteUser'])->middleware(['auth']);
+Route::post('/employees/block',[EmployeeController::class,'blockUser'])->middleware(['auth']);
+Route::post('/employees/activate',[EmployeeController::class,'activateUser'])->middleware(['auth']);
+/*End of employees Routes*/
+
 
 require __DIR__.'/auth.php';
