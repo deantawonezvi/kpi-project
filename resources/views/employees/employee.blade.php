@@ -208,7 +208,7 @@ use Carbon\Carbon;
                 <div class="row">
                     <div class="col-md-6">
                         <label>Employee Name:</label>
-                        <input type="text" class="form-control" name="name" value="{{$employee->name}}" readonly/>
+                        <input type="text" class="form-control" name="name" value="{{$employee->name}}" />
 
                         @if ($errors->has('name'))
                             <span class="invalid-feedback">
@@ -218,12 +218,12 @@ use Carbon\Carbon;
                     </div>
 
                     <div class="col-md-6">
-                        <label>Username:</label>
-                        <input type="text" class="form-control" name="user_name" value="{{$employee->user_name}}" readonly/>
+                        <label>Department:</label>
+                        <input type="text" class="form-control" name="user_name" value="{{$employee->department}}" />
 
-                        @if ($errors->has('user_name'))
+                        @if ($errors->has('department'))
                             <span class="invalid-feedback">
-                                        <strong>{{ $errors->first('user_name') }}</strong>
+                                        <strong>{{ $errors->first('department') }}</strong>
                                     </span>
                         @endif
                     </div>
@@ -232,7 +232,7 @@ use Carbon\Carbon;
                 <div class="row" style="margin-bottom: 30px">
                     <div class="col-md-6">
                         <label>Employee Role:</label>
-                        <input type="text" class="form-control" name="role" value="{{$employee->role}}" readonly/>
+                        <input type="text" class="form-control" name="role" value="{{$employee->type}}" />
 
                         @if ($errors->has('role'))
                             <span class="invalid-feedback">
