@@ -22,7 +22,7 @@ class EmployeeController extends Controller
     public function addIndex()
     {
         $departments = Department::all();
-        return view('employees.add')->with(['temp_password' => rand(1000, 9999), 'departments'=>$departments]);
+        return view('employees.add')->with(['temp_password' => rand(1000, 9999), 'departments' => $departments]);
     }
 
     public function employeeIndex($id)
@@ -51,6 +51,7 @@ class EmployeeController extends Controller
 
         return redirect()->to('/employees')->with(['message' => 'Employee has been deleted']);
     }
+
     public function blockUser(Request $request)
     {
         $user = User::find($request->user_id);
@@ -59,6 +60,7 @@ class EmployeeController extends Controller
 
         return redirect()->back()->with(['message' => 'Employee has been blocked']);
     }
+
     public function activateUser(Request $request)
     {
         $user = User::find($request->user_id);
@@ -79,7 +81,8 @@ class EmployeeController extends Controller
         User::create([
             'name'               => $request->name,
             'user_name'          => $request->user_name,
-            'role'               => $request->role,
+            'department'         => $request->department,
+            'type'               => $request->type,
             'password'           => bcrypt($request->temp_password),
             'status'             => true,
             'temporary_password' => true
