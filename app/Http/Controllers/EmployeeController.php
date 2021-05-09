@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\AuthorisedCashier;
+use App\Models\Department;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
@@ -20,7 +21,8 @@ class EmployeeController extends Controller
 
     public function addIndex()
     {
-        return view('employees.add')->with(['temp_password' => rand(1000, 9999)]);
+        $departments = Department::all();
+        return view('employees.add')->with(['temp_password' => rand(1000, 9999), 'departments'=>$departments]);
     }
 
     public function employeeIndex($id)

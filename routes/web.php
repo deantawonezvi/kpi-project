@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\DepartmentController;
 use App\Http\Controllers\EmployeeController;
 use Illuminate\Support\Facades\Route;
 
@@ -35,6 +36,12 @@ Route::post('/employees/activate',[EmployeeController::class,'activateUser'])->m
 
 
 /*Departments Routes*/
+Route::get('/departments',[DepartmentController::class,'index'])->middleware(['auth']);
+Route::get('/department/add',[DepartmentController::class,'addIndex'])->middleware(['auth']);
+Route::post('/department/add',[DepartmentController::class,'add'])->middleware(['auth']);
+/*End of departments Routes*/
+
+
 
 
 require __DIR__.'/auth.php';
