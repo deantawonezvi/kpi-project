@@ -34,4 +34,7 @@ Route::post('/employees/activate',[EmployeeController::class,'activateUser'])->m
 /*End of employees Routes*/
 
 
+/*Departments Routes*/
+
+
 require __DIR__.'/auth.php';

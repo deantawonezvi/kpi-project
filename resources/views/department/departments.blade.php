@@ -41,15 +41,15 @@
                     </tr>
                     </thead>
                     <tbody>
-                    @foreach($employees as $employee)
+                    @foreach($departments as $department)
                         <tr>
-                            <td>{{$employee->name}}</td>
-                            <td>{{$employee->type}}</td>
-                            <td>{{$employee->department}}</td>
+                            <td>{{$department->name}}</td>
+                            <td>{{$department->type}}</td>
+                            <td>{{$department->department}}</td>
                             <td>
                                 <div class="row">
 
-                                        <div class="col"><a href="/employee/{{$employee->id}}" class="btn black white-text">View</a></div>
+                                    <div class="col"><a href="/department/{{$department->id}}" class="btn black white-text">View</a></div>
 
                                 </div>
                             </td>

@@ -323,7 +323,7 @@
                     <ul class="flex-column pl-2 nav">
 
 
-                        <li class="nav-item "><a class="nav-link py-3" href="/products"><span>View Departments</span></a></li>
+                        <li class="nav-item "><a class="nav-link py-3" href="/departments"><span>View Departments</span></a></li>
 
                     </ul>
                 </div>
