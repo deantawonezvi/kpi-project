@@ -57,11 +57,11 @@
                         </div>
                         <div class="col-lg-6">
                             <label>Employee Department:</label>
-                            <input type="text" class="form-control" name="user_name"
+                            <input type="email" class="form-control" name="email"
                                    placeholder="Enter employee username" required/>
-                            @if ($errors->has('user_name'))
+                            @if ($errors->has('email'))
                                 <span class="invalid-feedback">
-                                        <strong>{{ $errors->first('user_name') }}</strong>
+                                        <strong>{{ $errors->first('email') }}</strong>
                                     </span>
                             @endif
                         </div>
@@ -79,7 +79,7 @@
                         </div>
                         <div class="col-lg-6">
                             <label>Employee Role:</label>
-                            <select class="form-control" name="role" id="role"  required>
+                            <select class="form-control" name="type" id="type"  required>
                                 <option value="Employee" selected>Employee</option>
                                 <option value="Supervisor">Supervisor</option>
                                 <option value="Manager">Manager</option>
@@ -97,10 +97,10 @@
                         <div class="col">
                             <label>Department</label>
 
-                            <select class="form-control" name="department" id="department" >
+                            <select class="form-control" name="department" id="department" required>
                                 <option value="option_select" disabled selected>Select Department</option>
                                 @foreach($departments as $department)
-                                    <option name="category" value="{{$department->name}}">{{$department->name}}</option>
+                                    <option  value="{{$department->name}}">{{$department->name}}</option>
                                 @endforeach
                             </select>
                         </div>

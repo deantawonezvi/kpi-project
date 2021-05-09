@@ -73,6 +73,8 @@ class EmployeeController extends Controller
 
     public function addEmployee(Request $request)
     {
+
+        //return $request->all();
         $this->addRules($request->all())->validate();
 
 
@@ -80,12 +82,11 @@ class EmployeeController extends Controller
 
         User::create([
             'name'               => $request->name,
-            'user_name'          => $request->user_name,
+            'email'              => $request->email,
             'department'         => $request->department,
             'type'               => $request->type,
             'password'           => bcrypt($request->temp_password),
-            'status'             => true,
-            'temporary_password' => true
+            'status'             => true
         ]);
 
         return redirect()->back()->with(['message' => 'Employee created successfully with temporary password: ' . $temp_password]);
@@ -95,10 +96,10 @@ class EmployeeController extends Controller
     private function addRules(array $data)
     {
         return Validator::make($data, [
-            'name'      => 'required|string|max:255',
-            'user_name' => 'required|string|unique:users',
-            'role'      => 'required|string',
-
+            'name'       => 'required|string|max:255',
+            'email'      => 'required|string|unique:users',
+            'type'       => 'required|string',
+            'department' => 'required|string'
         ]);
 
 
