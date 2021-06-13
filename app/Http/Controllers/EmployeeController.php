@@ -6,6 +6,7 @@ use App\Models\AuthorisedCashier;
 use App\Models\Department;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 use Carbon\Carbon;
 
@@ -80,18 +81,47 @@ class EmployeeController extends Controller
         $temp_password = $request->temp_password;
 
         User::create([
-            'name'               => $request->name,
-            'email'              => $request->email,
-            'department'         => $request->department,
-            'type'               => $request->type,
-            'password'           => bcrypt($request->temp_password),
-            'status'             => true
+            'name'       => $request->name,
+            'email'      => $request->email,
+            'department' => $request->department,
+            'type'       => $request->type,
+            'password'   => bcrypt($request->temp_password),
+            'status'     => true
         ]);
 
         return redirect()->back()->with(['message' => 'Employee created successfully with temporary password: ' . $temp_password]);
 
     }
 
+    public function remoteLogin(Request $request)
+    {
+
+        $credentials = ['email' => $request->input('email'),'password' => $request->input('password')];
+        $authorised = Auth::validate($credentials);
+
+        if ($authorised) {
+            $user = User::whereEmail($request->email)->first();
+
+            return array('code'        => '00',
+                         'description' => 'Success',
+                         'user'        => $user);
+        }
+
+        return array('code'        => '01',
+                     'description' => 'Invalid Credentials');
+
+
+    }
+
+    private function loginRules(array $data)
+    {
+        return Validator::make($data, [
+            'email'      => 'required|unique:users',
+            'password'       => 'required|string',
+        ]);
+
+
+    }
     private function addRules(array $data)
     {
         return Validator::make($data, [

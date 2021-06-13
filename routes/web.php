@@ -41,7 +41,4 @@ Route::get('/department/add',[DepartmentController::class,'addIndex'])->middlewa
 Route::post('/department/add',[DepartmentController::class,'add'])->middleware(['auth']);
 /*End of departments Routes*/
 
-
-
-
 require __DIR__.'/auth.php';

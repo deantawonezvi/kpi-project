@@ -37,8 +37,7 @@ class DepartmentController extends Controller
     private function addRules(array $data)
     {
         return Validator::make($data, [
-            'name'      => 'required|string|max:255|unique:users',
-
+            'name'      => 'required|string|max:255',
         ]);
 
 
