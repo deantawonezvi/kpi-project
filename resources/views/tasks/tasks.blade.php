@@ -28,7 +28,7 @@
 
             Tasks <span>
 
-                    <a href="/department/add" class="btn black white-text float-right mx-1">Add Task</a>
+                    <a href="/task/add" class="btn black white-text float-right mx-1">Add Task</a>
 
             </span>
 

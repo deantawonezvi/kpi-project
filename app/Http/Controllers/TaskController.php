@@ -14,4 +14,16 @@ class TaskController extends Controller
 
         return view('tasks.tasks')->with(['tasks' => $tasks]);
     }
+
+    public function add(Request $request)
+    {
+
+        $this->addRules($request->all())->validate();
+
+        Task::create([
+            'name'=>$request->name
+        ]);
+        return redirect()->back()->with(['message' => 'Task created successfully']);
+
+    }
 }
