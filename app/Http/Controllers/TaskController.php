@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Department;
 use App\Models\Task;
+use App\Models\TaskOutput;
 use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -24,6 +25,19 @@ class TaskController extends Controller
 
         return view('tasks.add')->with(['users' => $users]);
     }
+    public function taskIndex($id)
+    {
+        $task = Task::find($id);
+        $task_outputs = TaskOutput::whereTaskId($task->id)->get();
+        $task_employee = User::find($task->employee_id);
+        $task['employee'] = $task_employee;
+        $task['outputs'] = $task_outputs;
+
+       // return [$task];
+
+        return view('tasks.task')->with(['task' => $task]);
+    }
+
 
     public function add(Request $request)
     {
@@ -43,6 +57,26 @@ class TaskController extends Controller
 
         ]);
         return redirect()->back()->with(['message' => 'Task created successfully']);
+
+    }
+
+    public function getUserTasks(Request $request)
+    {
+
+        $tasks = Task::whereEmployeeId($request->user_id)
+            ->where('status', '!=', 'DONE')
+            ->get();
+
+        foreach ($tasks as $task){
+
+            $task_outputs = TaskOutput::whereTaskId($task->id)->get();
+            $task['outputs'] = $task_outputs;
+
+        }
+
+        return array('code'        => '00',
+                     'description' => 'Success',
+                     'tasks'       => $tasks);
 
     }
 

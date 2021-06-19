@@ -76,7 +76,7 @@
             background: black;
             color: #fff;
             transition: all 0.3s;
-            height: 100vh; /* Add height */
+            min-height: 100vh; /* Add height */
             overflow-y: auto;  /* Add overflow-y */
             overflow-x: hidden;  /* Add overflow-x */
             /* min-height: 100vh; */

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\EmployeeController;
+use App\Http\Controllers\TaskController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -20,3 +21,4 @@ use Illuminate\Support\Facades\Route;
  * Authenticated User login
  * */
 Route::post('/login',[EmployeeController::class,'remoteLogin']);
+Route::post('/tasks',[TaskController::class,'getUserTasks']);

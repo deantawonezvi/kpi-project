@@ -55,7 +55,7 @@
                             <td>
                                 <div class="row">
 
-                                    <div class="col"><a href="/department/{{$task->id}}" class="btn black white-text">View</a>
+                                    <div class="col"><a href="/task/{{$task->id}}" class="btn black white-text">View</a>
                                     </div>
 
                                 </div>
