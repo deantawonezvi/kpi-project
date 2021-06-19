@@ -44,6 +44,9 @@ Route::post('/department/add',[DepartmentController::class,'add'])->middleware([
 
 /*Tasks Routes*/
 Route::get('/tasks',[TaskController::class,'index'])->middleware(['auth']);
+Route::get('/task/add',[TaskController::class,'addIndex'])->middleware(['auth']);
+Route::post('/task/add',[TaskController::class,'add'])->middleware(['auth']);
+
 
 /*End of departments Routes*/
 

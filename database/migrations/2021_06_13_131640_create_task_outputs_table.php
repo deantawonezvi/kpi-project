@@ -15,7 +15,7 @@ class CreateTaskOutputsTable extends Migration
     {
         Schema::create('task_outputs', function (Blueprint $table) {
             $table->id();
-            $table->integerIncrements('task_id');
+            $table->integer('task_id');
             $table->string('output_type');
             $table->string('output_value');
             $table->timestamps();

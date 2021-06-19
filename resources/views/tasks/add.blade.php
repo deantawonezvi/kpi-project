@@ -18,7 +18,7 @@
                         fill="#000000" opacity="0.3"/>
                 </g>
                         </svg><!--end::Svg Icon--></span>
-            Add Department
+            Add Task
         </h3>
     </div>
     <br>
@@ -47,7 +47,7 @@
                     <div class="form-group row">
                         <div class="col-lg-12">
                             <label>Task Name:</label>
-                            <input type="text" class="form-control" name="name" placeholder="Enter department name" required/>
+                            <input type="text" class="form-control" name="name" placeholder="Enter task name" required/>
 
                             @if ($errors->has('name'))
                                 <span class="invalid-feedback">
@@ -56,6 +56,77 @@
                             @endif
                         </div>
                     </div>
+                    <div class="form-group row">
+                        <div class="col-lg-12">
+                            <label>Assigned To:</label>
+                            <select class="form-control" name="employee_id" required>
+                                @foreach($users as $user)
+                                    <option value="{{$user->id}}">{{$user->name}}</option>
+                                @endforeach
+                            </select>
+
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-lg-6">
+                            <label>Expected Completion Time(HRS):</label>
+                            <input type="text" class="form-control" name="expected_completion_time" placeholder="Enter expected completion time" required/>
+
+                            @if ($errors->has('name'))
+                                <span class="invalid-feedback">
+                                        <strong>{{ $errors->first('name') }}</strong>
+                                    </span>
+                            @endif
+                        </div>
+                        <div class="col-lg-6">
+                            <label>Expected Output(UNITS):</label>
+                            <input type="text" class="form-control" name="expected_output" placeholder="Enter expected units" required/>
+
+                            @if ($errors->has('expected_output'))
+                                <span class="invalid-feedback">
+                                        <strong>{{ $errors->first('expected_output') }}</strong>
+                                    </span>
+                            @endif
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-lg-6">
+                            <label>Importance:</label>
+                            <select class="form-control" name="importance" required>
+                                <option value="1">Low</option>
+                                <option value="2">Medium</option>
+                                <option value="3">High</option>
+                            </select>
+
+                        </div>
+                        <div class="col-lg-6">
+                            <label>Cost:</label>
+                            <input type="number" class="form-control" name="cost" placeholder="Cost" required/>
+
+                            @if ($errors->has('cost'))
+                                <span class="invalid-feedback">
+                                        <strong>{{ $errors->first('cost') }}</strong>
+                                    </span>
+                            @endif
+                        </div>
+
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-lg-12">
+                            <label>Assigned Date:</label>
+                            <input type="date" name="assigned_date" class="form-control" required>
+                            @if ($errors->has('assigned_date'))
+                                <span class="invalid-feedback">
+                                        <strong>{{ $errors->first('assigned_date') }}</strong>
+                                    </span>
+                            @endif
+
+                        </div>
+                    </div>
+
+
+
+
 
 
                 </div>
