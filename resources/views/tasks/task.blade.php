@@ -275,7 +275,7 @@ use Carbon\Carbon;
                     </div>
                     <div class="col-md-6">
                         <label>Task Actual Output:</label>
-                        <input type="text" class="form-control" name="role" value="{{$task->actual_output}}" disabled />
+                        <input type="text" class="form-control" name="role" value="{{count($task->outputs)}}" disabled />
 
                     </div>
 
