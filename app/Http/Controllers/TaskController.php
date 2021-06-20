@@ -85,6 +85,7 @@ class TaskController extends Controller
         $task = Task::find($request->task_id);
 
         $task->started_date = Carbon::now();
+        $task->status = 'ACCEPTED';
 
         $task->save();
         return array('code'        => '00',

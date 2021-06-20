@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\TaskController;
+use App\Http\Controllers\TaskOutputController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -22,3 +23,5 @@ use Illuminate\Support\Facades\Route;
  * */
 Route::post('/login',[EmployeeController::class,'remoteLogin']);
 Route::post('/tasks',[TaskController::class,'getUserTasks']);
+Route::post('/task/accept',[TaskController::class,'acceptTask']);
+Route::post('/task/output',[TaskOutputController::class,'addOutput']);
