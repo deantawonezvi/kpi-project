@@ -26,7 +26,7 @@ Route::get('/dashboard', function () {
 
 /*Employees Routes*/
 Route::get('/employees',[EmployeeController::class,'index'])->middleware(['auth']);
-Route::get('/employee/{id}',[EmployeeController::class,'employeeIndex'])->middleware(['auth']);
+Route::get('/employee/{id}',[EmployeeController::class,'employeeIndex'])->whereNumber('id')->middleware(['auth']);
 Route::get('/employees/add',[EmployeeController::class,'addIndex'])->middleware(['auth']);
 Route::post('/employees/add',[EmployeeController::class,'addEmployee'])->middleware(['auth']);
 Route::post('/employees/update-pin',[EmployeeController::class,'updatePin'])->middleware(['auth']);
@@ -44,7 +44,7 @@ Route::post('/department/add',[DepartmentController::class,'add'])->middleware([
 
 /*Tasks Routes*/
 Route::get('/tasks',[TaskController::class,'index'])->middleware(['auth']);
-Route::get('/task/{id}',[TaskController::class,'taskIndex'])->middleware(['auth']);
+Route::get('/task/{id}',[TaskController::class,'taskIndex'])->whereNumber('id')->middleware(['auth']);
 Route::get('/task/add',[TaskController::class,'addIndex'])->middleware(['auth']);
 Route::post('/task/add',[TaskController::class,'add'])->middleware(['auth']);
 
