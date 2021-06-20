@@ -80,6 +80,20 @@ class TaskController extends Controller
 
     }
 
+    public function acceptTask(Request $request){
+
+        $task = Task::find($request->task_id);
+
+        $task->started_date = Carbon::now();
+
+        $task->save();
+        return array('code'        => '00',
+                     'description' => 'Success');
+
+
+
+    }
+
     private function addRules(array $data)
     {
         return Validator::make($data, [
