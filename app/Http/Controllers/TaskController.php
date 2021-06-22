@@ -6,6 +6,7 @@ use App\Models\Department;
 use App\Models\Task;
 use App\Models\TaskOutput;
 use App\Models\User;
+use App\Services\SmsService;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
@@ -56,6 +57,10 @@ class TaskController extends Controller
             'assigned_date'            => Carbon::now(),
 
         ]);
+
+        $selected_user = User::find($request->employee_id);
+        SmsService::sendSMSOtp("263" . substr($selected_user->mobile, -9),'Task: '.$request->name.' has been assigned to you.');
+
         return redirect()->back()->with(['message' => 'Task created successfully']);
 
     }
