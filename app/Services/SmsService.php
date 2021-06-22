@@ -3,6 +3,7 @@
 
 namespace App\Services;
 use GuzzleHttp;
+use Illuminate\Support\Facades\Log;
 
 
 class SmsService
@@ -16,11 +17,12 @@ class SmsService
         $client = new GuzzleHttp\Client(['verify'  => false,
                                          'headers' => $headers]);
 
-        $request_data = array('from' => 'InfoSMS (KPI)',
+        $request_data = array('from' => 'GetBucks',
                               'to'   => $mobile,
                               'text' => $message);
 
         $res = $client->post('https://api.infobip.com/sms/1/text/single', ['json' => $request_data]);
+        Log::debug($res->getBody()->getContents());
 
         return json_decode($res->getBody()->getContents());
 
