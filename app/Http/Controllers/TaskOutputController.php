@@ -28,7 +28,7 @@ class TaskOutputController extends Controller
         if ($task->actual_output == ($task->expected_output - 1)) {
             $task->completed_date = Carbon::now();
             $task->status = 'COMPLETE';
-            $diff = Carbon::parse($task->started_date)->diffInHours(Carbon::now());
+            $diff = Carbon::parse($task->started_date)->diffInMinutes(Carbon::now())/60;
 
             $task->actual_completion_time = $diff;
         }
