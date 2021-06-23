@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\DashBoardController;
 use App\Http\Controllers\DepartmentController;
 use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\TaskController;
@@ -16,13 +17,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
+Route::get('/', [DashBoardController::class,'getData'])->middleware(['auth'])->name('dashboard');
+Route::get('/dashboard', [DashBoardController::class,'getData'])->middleware(['auth'])->name('dashboard');
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
 
 /*Employees Routes*/
 Route::get('/employees',[EmployeeController::class,'index'])->middleware(['auth']);

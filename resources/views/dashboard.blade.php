@@ -23,10 +23,18 @@
                         <br>
                         <div class="row">
                             <div class="col font-weight-bold">
-                                Transactions
+                                Tasks
                             </div>
                             <div class="col font-weight-bold">
-                                {{0}}
+                                {{$hour['tasks']}}
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col font-weight-bold">
+                                Task Outputs
+                            </div>
+                            <div class="col font-weight-bold">
+                                {{$hour['task_outputs']}}
                             </div>
                         </div>
 
@@ -51,10 +59,18 @@
                         <br>
                         <div class="row">
                             <div class="col font-weight-bold">
-                                Transactions
+                                Tasks
                             </div>
                             <div class="col font-weight-bold">
-                                {{0}}
+                                {{$today['tasks']}}
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col font-weight-bold">
+                                Tasks Output
+                            </div>
+                            <div class="col font-weight-bold">
+                                {{$today['task_outputs']}}
                             </div>
                         </div>
 
@@ -79,10 +95,18 @@
                         <br>
                         <div class="row">
                             <div class="col font-weight-bold">
-                                Transactions
+                                Tasks
                             </div>
                             <div class="col font-weight-bold">
-                                {{0}}
+                                {{$month['tasks']}}
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col font-weight-bold">
+                                Task Outputs
+                            </div>
+                            <div class="col font-weight-bold">
+                                {{$month['task_outputs']}}
                             </div>
                         </div>
 
