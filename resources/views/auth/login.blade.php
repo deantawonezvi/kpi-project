@@ -5,9 +5,9 @@
     <div class="container login mt-10">
         <div class="row justify-content-center my-auto">
             <div class="col-md-6">
-                <h1 class="text-center">KPI's (Schweppes)</h1>
+                <h4 class="text-center">KPI's (Schweppes)</h4>
                 <div class="d-flex justify-content-center">
-                    <img class="center img-fluid" style="width: 250px" src="{{asset('img/szl-logo.png')}}" alt="">
+                    <img class="center img-fluid" style="width: 200px" src="{{asset('img/szl-logo.png')}}" alt="">
                 </div>
 
                 <hr>

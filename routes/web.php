@@ -3,6 +3,7 @@
 use App\Http\Controllers\DashBoardController;
 use App\Http\Controllers\DepartmentController;
 use App\Http\Controllers\EmployeeController;
+use App\Http\Controllers\ReportController;
 use App\Http\Controllers\TaskController;
 use Illuminate\Support\Facades\Route;
 
@@ -44,8 +45,13 @@ Route::get('/tasks',[TaskController::class,'index'])->middleware(['auth']);
 Route::get('/task/{id}',[TaskController::class,'taskIndex'])->whereNumber('id')->middleware(['auth']);
 Route::get('/task/add',[TaskController::class,'addIndex'])->middleware(['auth']);
 Route::post('/task/add',[TaskController::class,'add'])->middleware(['auth']);
+/*End of tasks Routes*/
 
-
-/*End of departments Routes*/
+/*Reports Routes*/
+Route::get('/reports',[ReportController::class,'index'])->middleware(['auth']);
+Route::get('/reports/{id}',[ReportController::class,'employeeIndex'])->whereNumber('id')->middleware(['auth']);
+Route::get('/task/add',[TaskController::class,'addIndex'])->middleware(['auth']);
+Route::post('/task/add',[TaskController::class,'add'])->middleware(['auth']);
+/*End of Reports Routes*/
 
 require __DIR__.'/auth.php';

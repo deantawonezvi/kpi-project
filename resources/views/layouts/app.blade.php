@@ -267,11 +267,13 @@
                         fill="#000000" fill-rule="nonzero"/>
                     <rect fill="#000000" opacity="0.3" x="17" y="11" width="3" height="6" rx="1.5"/>
                 </g>
-                        </svg>  </span> Reports </span></a>
+                        </svg>  </span>
+                        Reports
+                    </span></a>
                 <div class="collapse" id="reportsSubMenu" aria-expanded="false">
                     <ul class="flex-column pl-2 nav">
 
-                        <li class="nav-item "><a class="nav-link py-3" href="/sales-report"><span>View KPI Report</span></a></li>
+                        <li class="nav-item "><a class="nav-link py-3" href="/reports"><span>View KPI Report</span></a></li>
                     </ul>
 
                 </div>
