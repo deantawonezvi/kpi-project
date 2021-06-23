@@ -85,6 +85,7 @@ class EmployeeController extends Controller
             'email'      => $request->email,
             'department' => $request->department,
             'type'       => $request->type,
+            'mobile'       => $request->mobile,
             'password'   => bcrypt($request->temp_password),
             'status'     => true
         ]);
@@ -128,7 +129,8 @@ class EmployeeController extends Controller
             'name'       => 'required|string|max:255',
             'email'      => 'required|string|unique:users',
             'type'       => 'required|string',
-            'department' => 'required|string'
+            'department' => 'required|string',
+            'mobile' => 'required|string'
         ]);
 
 

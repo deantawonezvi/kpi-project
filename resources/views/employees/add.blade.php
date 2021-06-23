@@ -68,6 +68,18 @@
                     </div>
                     <div class="form-group row">
                         <div class="col-lg-6">
+                            <label>Mobile Number:</label>
+                            <input type="number" class="form-control" name="mobile"
+                                   placeholder="Mobile Number" required/>
+                            @if ($errors->has('mobile'))
+                                <span class="invalid-feedback">
+                                        <strong>{{ $errors->first('mobile') }}</strong>
+                                    </span>
+                            @endif
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-lg-6">
                             <label>Temporary Password:</label>
                             <input type="text" class="form-control" name="temp_password"
                                    placeholder="Temp Password" disabled value="{{$temp_password}}" required/>
