@@ -80,9 +80,14 @@ class ReportController extends Controller
             'tasks_hour'       => $tasks_this_hour->count(),
             'completed_hour'   => $completed_tasks_hour,
             'outputs_hour'     => $task_outputs_hour->count(),
-            'outputs_day'     => $task_outputs_today->count(),
-            'outputs_month'     => $task_outputs_month->count(),
-            'expected_output'     => $expected_output,
+            'outputs_day'      => $task_outputs_today->count(),
+            'outputs_month'    => $task_outputs_month->count(),
+            'expected_output'  => $expected_output,
+            'total_output'     => $total_output,
+            'highest_output'   => $highest_output,
+            'average_output'   => $average_output,
+            'average_time'     => $average_completion_time,
+            'fastest_time'     => $fastest_completion_time,
         ];
 
 

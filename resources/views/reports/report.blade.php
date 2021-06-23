@@ -183,6 +183,50 @@ use Carbon\Carbon;
                         <td>Outputs this month(Completed/Expected)</td>
                         <td>{{$stats['outputs_month']}}/{{$stats['expected_output']}}</td>
                     </tr>
+                    <tr>
+                        <td>Highest output this month</td>
+                        <td>{{$stats['highest_output']}}</td>
+                    </tr>
+                    <tr>
+                        <td>Average output this month</td>
+                        <td>{{$stats['average_output']}}</td>
+                    </tr>
+                    </tbody>
+                </table>
+
+
+            </div>
+
+        </div>
+        <br>
+        <div class="card">
+            <div class="card-header black white-text">
+                <div class="row">
+                    <div class="col-md-4">
+                        Key Performance Indicators (Completion Time)
+                    </div>
+                </div>
+
+            </div>
+
+
+            <div class="card-body">
+                <table>
+                    <thead>
+                    <tr>
+                        <th>Metric</th>
+                        <th>Value</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>Average Completion Time(Hrs)</td>
+                        <td>{{$stats['average_time']}}</td>
+                    </tr>
+                    <tr>
+                        <td>Fastest Completion Time(Hrs)</td>
+                        <td>{{$stats['fastest_time']}}</td>
+                    </tr>
                     </tbody>
                 </table>
 
