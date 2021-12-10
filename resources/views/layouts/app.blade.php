@@ -204,7 +204,8 @@
             /*#sidebarCollapse span {
                 display: none;
             }*/
-        }    </style>
+        }
+    </style>
 
     <!-- Scripts -->
 </head>
