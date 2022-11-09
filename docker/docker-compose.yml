@@ -1,0 +1,32 @@
+version: '3.7'
+
+services:
+  kpi-project:
+    container_name: kpi-project
+    restart: unless-stopped
+    image: registry.gitlab.com/deantawonezvi1/kpi-project:${BRANCH}-${APP_VERSION}
+    networks:
+      - proxy
+    expose:
+      - 3000
+    labels:
+      ##- traefik.http.routers.kpi-project.rule=Host(`kpi-project`) || Host(`www.kpi-project`)
+      ##Set the lowest routing priority == 1
+      ##This will solve the overlap with api routes
+      ##- traefik.http.routers.kpi-project.priority=1
+      ##HTTPS
+      - "traefik.enable=true"
+      - "traefik.http.routers.kpi-project.entrypoints=websecure"
+      - "traefik.http.routers.kpi-project.rule=Host(`kpi-project.deant.work`)"
+      - "traefik.http.middlewares.kpi-project-https-redirect.redirectscheme.scheme=https"
+      - "traefik.http.routers.kpi-project-secure.entrypoints=websecure"
+      - "traefik.http.routers.kpi-project-secure.rule=Host(`kpi-project.deant.work`)"
+      - "traefik.http.routers.kpi-project-secure.tls=true"
+      - "traefik.http.routers.kpi-project-secure.tls.certresolver=http"
+      - "traefik.docker.network=proxy"
+    env_file:
+      - .env
+
+networks:
+  proxy:
+    external: true
